@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -41,3 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background Water
+    uniqueID: 1420472789
+    locked: 0
+  - name: Background Foam
+    uniqueID: 547376265
+    locked: 0
+  - name: Ground
+    uniqueID: 3146319335
+    locked: 0
+  - name: Ground Object
+    uniqueID: 2207549339
+    locked: 0
+  - name: Enemy
+    uniqueID: 1023493027
+    locked: 0
+  - name: Player
+    uniqueID: 811655783
+    locked: 0
+  m_RenderingLayers:
+  - Default

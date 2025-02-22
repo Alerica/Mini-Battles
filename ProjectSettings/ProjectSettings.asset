@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 97da07e1a942168488b3b9f18553a40b
+  productGUID: c578c6808ab7a244baeb780abb9ada3f
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -687,10 +687,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: a6320995-b65e-422e-8dbf-0b5ddb8cbc5d
+  cloudProjectId: ad992287-e679-475a-b028-a795d63272be
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Mini Battles
+  projectName: Mini Battles 2025-02-22_21-54-03
   organizationId: unity_fad27c235478e9368b70
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

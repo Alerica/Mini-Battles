@@ -1,27 +1,52 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
 public class Tree : MonoBehaviour
 {
     [SerializeField]
-    private GameObject woodPrefabs;
+    private GameObject woodPrefab;
     private GameObject selectedGameObject;
-    
+    private Animator animator;
 
-    public void SpawnWood()
+    public bool IsBeingChopped { get; private set; } = false;
+
+    public void StartChopping()
     {
-        Instantiate(woodPrefabs, transform.position, Quaternion.identity);
-        
+        IsBeingChopped = true;
+        if (animator != null)
+        {
+            animator.SetBool("isBeingChopped", true);
+        }
     }
+
+    public void StopChopping()
+    {
+        IsBeingChopped = false;
+        if (animator != null)
+        {
+            animator.SetBool("isBeingChopped", false);
+        }
+    }
+
 
     void Awake()
     {
-        selectedGameObject = transform.Find("Selected").gameObject;
+        animator = GetComponent<Animator>();
+        selectedGameObject = transform.Find("Selected")?.gameObject;
         SetSelectedVisible(false);
+    }
+
+    public void SpawnWood()
+    {
+        Vector3 spawnPosition = transform.position + new Vector3(0, -1f, 0); 
+        Instantiate(woodPrefab, spawnPosition, Quaternion.identity);
     }
 
     public void SetSelectedVisible(bool visible)
     {
-        selectedGameObject.SetActive(visible);
+        if (selectedGameObject != null)
+        {
+            selectedGameObject.SetActive(visible);
+        }
     }
+
 }

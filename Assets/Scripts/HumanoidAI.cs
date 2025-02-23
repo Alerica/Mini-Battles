@@ -8,6 +8,8 @@ public class HumanoidAI : MonoBehaviour
     private Vector3? Destination => humanoidDestination;
 
     private Animator animator;
+
+
     void Awake()
     {
         animator = GetComponent<Animator>();

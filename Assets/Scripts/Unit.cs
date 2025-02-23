@@ -3,7 +3,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     [SerializeField]
-    private HumanoidAI aI;
+    public HumanoidAI aI;
     private SpriteRenderer spriteRenderer;
     
     public bool IsMoving;

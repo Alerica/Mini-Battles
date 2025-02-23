@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8487555745891495538}
   - component: {fileID: 4130079992110561932}
   - component: {fileID: 1928661662937215490}
+  - component: {fileID: 2841298562217300408}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Interactable
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f0b02ea2fc1444f8d0b5b61ed2ac30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodPrefabs: {fileID: 8805126502487384443, guid: 12141855e64dd3645843bcf1476e60b3, type: 3}
+  woodPrefab: {fileID: 8805126502487384443, guid: 12141855e64dd3645843bcf1476e60b3, type: 3}
 --- !u!61 &1928661662937215490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,6 +150,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.11, y: 1.74}
   m_EdgeRadius: 0
+--- !u!95 &2841298562217300408
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621552039878058891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 020aafa87c1f3db4faed8aa9c31111cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8717779882271621827
 GameObject:
   m_ObjectHideFlags: 0

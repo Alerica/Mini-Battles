@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Ground Object
     uniqueID: 2207549339
+    locked: 0
+  - name: Player Effect
+    uniqueID: 2944901147
     locked: 0
   - name: Player
     uniqueID: 811655783

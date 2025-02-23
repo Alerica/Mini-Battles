@@ -5,10 +5,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private PointToClick pointToClickPrefabs;
-
     public Unit ActiveUnit;
-
     private Vector2 InitialTouchPosition;
+
+    
 
 
     void Update()

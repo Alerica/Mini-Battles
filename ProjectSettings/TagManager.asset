@@ -2,8 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Wood
+  - Construction
+  - Town Hall
+  - Tree
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -11,10 +16,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Humanoid
+  - Tree
+  - Town Hall
   - 
   - 
   - 
@@ -41,3 +46,35 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background Water
+    uniqueID: 1420472789
+    locked: 0
+  - name: Background Foam
+    uniqueID: 547376265
+    locked: 0
+  - name: Background Base
+    uniqueID: 1344232737
+    locked: 0
+  - name: Ground
+    uniqueID: 3146319335
+    locked: 0
+  - name: Ground Object
+    uniqueID: 2207549339
+    locked: 0
+  - name: Player Effect
+    uniqueID: 2944901147
+    locked: 0
+  - name: Player
+    uniqueID: 811655783
+    locked: 0
+  - name: Ground Object Non Solid
+    uniqueID: 612020913
+    locked: 0
+  - name: Enemy
+    uniqueID: 1023493027
+    locked: 0
+  - name: Effect
+    uniqueID: 1748051045
+    locked: 0
+  m_RenderingLayers:
+  - Default

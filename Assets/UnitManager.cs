@@ -11,11 +11,20 @@ public class UnitManager : MonoBehaviour
     [SerializeField]
     private Transform selectionAreaTransform;
 
+
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip selectSound;  
+    [SerializeField]
+    private AudioClip deselectSound;
+
     private void Awake()
     {
         selectionAreaTransform.gameObject.SetActive(false);
         selectedUnitList = new List<Unit>();
         selectedTreeList = new List<Tree>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -47,6 +56,8 @@ public class UnitManager : MonoBehaviour
             selectionAreaTransform.gameObject.SetActive(false);
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, GetWorldPosition());
 
+            bool hadSelection = selectedUnitList.Count > 0 || selectedTreeList.Count > 0; //
+
             foreach(Unit unit in selectedUnitList)
             {
                 if(unit != null)
@@ -64,7 +75,9 @@ public class UnitManager : MonoBehaviour
             selectedUnitList.Clear();
             selectedTreeList.Clear();
 
-            // 
+            bool hasNewSelection = false; 
+
+             
             foreach(Collider2D collider2D in collider2DArray)
             {
                 Unit unit = collider2D.GetComponent<Unit>();
@@ -73,7 +86,7 @@ public class UnitManager : MonoBehaviour
                 {
                     unit.SetSelectedVisible(true);
                     selectedUnitList.Add(unit);
-                    
+                    hasNewSelection = true;
                 }
 
                 if(tree != null)
@@ -81,6 +94,15 @@ public class UnitManager : MonoBehaviour
                     tree.SetSelectedVisible(true);
                     selectedTreeList.Add(tree);
                 }
+            }
+
+            if (hasNewSelection && selectSound != null)
+            {
+                audioSource.PlayOneShot(selectSound);
+            }
+            else if (hadSelection && deselectSound != null)
+            {
+                audioSource.PlayOneShot(deselectSound);
             }
 
             Debug.Log("Tree: " + selectedTreeList.Count);

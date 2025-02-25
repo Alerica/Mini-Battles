@@ -7,10 +7,16 @@ public class HumanoidAI : MonoBehaviour
     private Vector3? humanoidDestination;
     private Vector3? Destination => humanoidDestination;
     private Animator animator;
+    private GameObject woodGameObject;
+    private GameObject woodGameObject1;
+    private GameObject woodGameObject2;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        woodGameObject = transform.Find("Wood_0").gameObject;
+        woodGameObject1 = transform.Find("Wood_1").gameObject;
+        woodGameObject2 = transform.Find("Wood_2").gameObject;
     }
     void Update()
     {
@@ -32,5 +38,12 @@ public class HumanoidAI : MonoBehaviour
     {
         humanoidDestination = destination;
         animator.SetBool(StringManager.isMoving, true);
+    }
+
+    public void SetWoodVisible(bool visible)
+    {
+        woodGameObject.SetActive(visible);
+        woodGameObject1.SetActive(visible);
+        woodGameObject2.SetActive(visible);
     }
 }

@@ -9,6 +9,7 @@ public class FoundObject : MonoBehaviour
     private Animator animator;
     private bool isChopping = false;
     private Vector3 lastTreePosition;
+    private Vector3 treeOffSet = new Vector3(0.5f, 0.5f, 0);
     private bool isReturningToTownHall = false; 
 
     void Awake()
@@ -37,7 +38,7 @@ public class FoundObject : MonoBehaviour
 
         if (treeCollider != null)
         {
-            lastTreePosition = treeCollider.transform.position - new Vector3(0.5f, 0 ,0); // To offset 
+            lastTreePosition = treeCollider.transform.position - treeOffSet; // To offset 
             Debug.Log("Tree found! Starting chopping.");
             StartCoroutine(StartChopping());
         }
@@ -51,7 +52,9 @@ public class FoundObject : MonoBehaviour
     {
         isChopping = true;
         animator.SetBool("isChopping", true);
+        animator.SetBool("isCarryingWood", false);
         Debug.Log("Chopping tree...");
+
 
         yield return new WaitForSeconds(5f);
 
@@ -60,7 +63,10 @@ public class FoundObject : MonoBehaviour
 
     private void StopChopping()
     {
+        animator.SetBool("isCarryingWood", true);
+        aI.SetWoodVisible(true);
         animator.SetBool("isChopping", false);
+        
 
         GameObject townHall = GameObject.FindWithTag(StringManager.tagTownHall);
         if (townHall != null)
@@ -81,17 +87,22 @@ public class FoundObject : MonoBehaviour
     private IEnumerator ReturnToTree()
     {
         yield return new WaitUntil(() => !humanoidMovement.IsMoving); 
+        
 
         Debug.Log("Reached Town Hall, now returning to the tree.");
         isReturningToTownHall = false; 
 
         yield return new WaitForSeconds(2f); 
         humanoidMovement.MoveTo(lastTreePosition);
+        ResourceManager.Instance?.AddWood(1);
+        animator.SetBool("isCarryingWood", false);
+        aI.SetWoodVisible(false);
 
         yield return new WaitUntil(() => !humanoidMovement.IsMoving); 
 
         yield return new WaitForSeconds(1f); 
 
+        
         Debug.Log("Back at the tree, restarting chopping.");
         CheckForTree(); 
     }
